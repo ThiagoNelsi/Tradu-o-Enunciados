@@ -57,7 +57,7 @@
 
       // get only html filenames inside exercicios folder and remove .html
       const filenames = [];
-      fetch("./exercicios")
+      fetch("https://thiagonelsi.github.io/maratona-bixos/exercicios")
         .then((response) => response.text())
         .then((html) => {
           const parser = new DOMParser();
