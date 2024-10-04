@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/texme@1.2.2"></script>
+
+<textarea>
+
+# Números Ausentes
+
+Dadas duas listas de inteiros, encontre quais elementos da segunda lista estão ausentes na primeira.
+
+**Exemplo**  
+arr = \[7, 2, 5, 3, 5, 3\]  
+brr = \[7, 2, 5, 4, 6, 3, 5, 3\]
+
+A lista `brr` é a lista original. Os números ausentes são \[4, 6\].
+
+**Notas**
+
+- Se um número ocorre múltiplas vezes nas listas, você deve garantir que a frequência desse número em ambas as listas seja a mesma. Se isso não ocorrer, ele também é considerado um número ausente.
+- Retorne os números ausentes em ordem crescente.
+- Inclua apenas um número uma vez, mesmo que ele esteja ausente múltiplas vezes.
+- A diferença entre o maior e o menor número na lista original é menor ou igual a 100.
+
+## Descrição da Função
+
+Complete a função `missingNumbers` no editor abaixo. Ela deve retornar uma lista ordenada de números ausentes.
+
+`missingNumbers` tem o(s) seguinte(s) parâmetro(s):
+
+- `int arr[n]`: a lista com números ausentes
+- `int brr[m]`: a lista original de números
+
+### Retorno
+
+- `int[]`: uma lista de inteiros.
+
+### Formato de Entrada
+
+Serão quatro linhas de entrada:
+
+1. `n` - o tamanho da primeira lista, `arr`
+2. A próxima linha contém `n` inteiros separados por espaço, descrevendo `arr[i]`
+3. `m` - o tamanho da segunda lista, `brr`
+4. A próxima linha contém `m` inteiros separados por espaço, descrevendo `brr[i]`
+
+### Restrições
+
+- \(1 \leq n, m \leq 2 imes 10^5\)
+- \(n \leq m\)
+- \(1 \leq brr[i] \leq 10^4\)
+- \(max(brr) - min(brr) \leq 100\)
+
+---
+
+## Exemplo de Entrada
+
+```
+10
+203 204 205 206 207 208 203 204 205 206
+13
+203 204 204 205 206 207 205 208 203 206 205 206 204
+```
+
+### Exemplo de Saída
+
+```
+204 205 206
+```
+
+### Explicação
+
+O número 204 está presente em ambas as listas. Sua frequência em `arr` é 2, enquanto sua frequência em `brr` é 3. Da mesma forma, 205 e 206 aparecem duas vezes em `arr`, mas três vezes em `brr`. O restante dos números tem as mesmas frequências em ambas as listas.

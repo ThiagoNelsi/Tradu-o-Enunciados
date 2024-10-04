@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tradução</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 1fr;
+        height: 100vh;
+        margin: 0;
+        font: 1rem sans-serif;
+      }
+
+      aside {
+        background-color: #f8f9fa;
+        border-right: 1px solid #e9ecef;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        font-size: 20px;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      li {
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      iframe {
+        border: none;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <h1>Exercícios</h1>
+      <ul></ul>
+    </aside>
+    <iframe src="./exercicios/plus-minus.html"></iframe>
+    <script>
+      const iframe = document.querySelector("iframe");
+
+      // get only html filenames inside exercicios folder and remove .html
+      const filenames = [];
+      fetch("./exercicios")
+        .then((response) => response.text())
+        .then((html) => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+          const links = doc.querySelectorAll("a");
+          links.forEach((link) => {
+            const filename = link.href.split("/").pop();
+            if (filename.includes(".html")) {
+              filenames.push(filename.replace(".html", ""));
+            }
+          });
+        })
+        .then(() => {
+          filenames.forEach((filename) => {
+            const li = document.createElement("li");
+            li.textContent = filename;
+            li.onclick = () => load(filename);
+            document.querySelector("aside ul").appendChild(li);
+          });
+        });
+
+      function load(ex) {
+        iframe.src = `./exercicios/${ex}.html`;
+      }
+    </script>
+  </body>
+</html>

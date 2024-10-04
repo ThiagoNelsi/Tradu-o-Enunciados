@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/texme@1.2.2"></script>
+
+<textarea>
+
+# Diagonal Difference - Diferença Diagonal
+
+#### Problema
+Dada uma matriz quadrada, calcule a diferença absoluta entre as somas de suas diagonais.
+
+Por exemplo, a matriz quadrada `arr` é mostrada abaixo:
+
+```
+1  2  3  
+4  5  6  
+9  8  9  
+```
+
+A diagonal da esquerda para a direita é `1 + 5 + 9 = 15`. A diagonal da direita para a esquerda é `3 + 5 + 9 = 17`. A diferença absoluta entre elas é `|15 - 17| = 2`.
+
+#### Descrição da Função
+Complete a função `diferencaDiagonal` no editor abaixo.
+
+A função `diferencaDiagonal` possui o seguinte parâmetro:
+
+- `int arr[n][m]`: um array de inteiros
+
+#### Retorno
+- `int`: a diferença absoluta entre as diagonais
+
+#### Formato de Entrada
+- A primeira linha contém um único inteiro, `n`, o número de linhas e colunas da matriz quadrada `arr`.
+- Cada uma das próximas `n` linhas descreve uma linha, `arr[i]`, e consiste em `n` inteiros separados por espaço `arr[i][j]`.
+
+#### Restrições
+- `-100 ≤ arr[i][j] ≤ 100`
+
+#### Formato de Saída
+Retorne a diferença absoluta entre as somas das duas diagonais da matriz como um único inteiro.
+
+#### Exemplo de Entrada 0
+```
+3  
+11  2  4  
+4   5  6  
+10  8 -12  
+```
+
+#### Exemplo de Saída 0
+```
+15  
+```
+
+#### Explicação
+A diagonal principal é:  
+```
+11  
+  5  
+    -12  
+```
+Soma da diagonal principal: `11 + 5 - 12 = 4`
+
+A diagonal secundária é:  
+```
+    4  
+  5  
+10  
+```
+Soma da diagonal secundária: `4 + 5 + 10 = 19`
+
+Diferença: `|4 - 19| = 15`
