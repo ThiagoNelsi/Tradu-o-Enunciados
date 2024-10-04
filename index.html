@@ -49,38 +49,22 @@
   <body>
     <aside>
       <h1>Exercícios</h1>
-      <ul></ul>
+      <ul>
+        <li onclick="load('birthday-cake-candles')">birthday-cake-candles</li>
+        <li onclick="load('breaking-the-records')">breaking-the-records</li>
+        <li onclick="load('Designer_PDF_Viewer')">Designer_PDF_Viewer</li>
+        <li onclick="load('diagonal-difference')">diagonal-difference</li>
+        <li onclick="load('MinMaxSum')">MinMaxSum</li>
+        <li onclick="load('missing_numbers')">missing_numbers</li>
+        <li onclick="load('plus-minus')">plus-minus</li>
+      </ul>
     </aside>
-    <iframe src="https://thiagonelsi.github.io/maratona-bixos/exercicios/plus-minus.html"></iframe>
+    <iframe src="./exercicios/plus-minus.html"></iframe>
     <script>
       const iframe = document.querySelector("iframe");
 
-      // get only html filenames inside exercicios folder and remove .html
-      const filenames = [];
-      fetch("https://thiagonelsi.github.io/maratona-bixos/exercicios")
-        .then((response) => response.text())
-        .then((html) => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, "text/html");
-          const links = doc.querySelectorAll("a");
-          links.forEach((link) => {
-            const filename = link.href.split("/").pop();
-            if (filename.includes(".html")) {
-              filenames.push(filename.replace(".html", ""));
-            }
-          });
-        })
-        .then(() => {
-          filenames.forEach((filename) => {
-            const li = document.createElement("li");
-            li.textContent = filename;
-            li.onclick = () => load(filename);
-            document.querySelector("aside ul").appendChild(li);
-          });
-        });
-
       function load(ex) {
-        iframe.src = `https://thiagonelsi.github.io/maratona-bixos/exercicios/${ex}.html`;
+        iframe.src = `./exercicios/${ex}.html`;
       }
     </script>
   </body>
